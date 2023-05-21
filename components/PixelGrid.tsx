@@ -1,4 +1,4 @@
-import { PIXEL_SIZE, WIDTH, HEIGHT } from "consts/consts.ts"
+import { PIXEL_SIZE, WIDTH, HEIGHT, COLORS } from "consts/consts.ts"
 import { useState } from "preact/hooks"
 
 const initialTiles = Array.from({ length: WIDTH * HEIGHT }).fill("#fff")
@@ -14,7 +14,7 @@ export default function PixelGrid() {
                     onClick={() => {
                         updateTiles((tiles) => {
                             const newTiles = [...tiles]
-                            newTiles[index] = "#000"
+                            newTiles[index] = COLORS[Math.floor(Math.random() * 4)]
                             return newTiles
                         })
                     }}
